@@ -1,22 +1,18 @@
-<%= form_for @user do |f| %>
-  <ul>
-  <% @user.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
+<form accept-charset="UTF-8" action="/users/new" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <label for="username">Username:<br />
+    <input id="username" name="username" type="text">
   </p>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <label for="email">Email:<br />
+    <input id="email" name="email" type="text">
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <label for="password">Password:<br />
+    <input id="password" name="password" type="password">
   </p>
   <p>
-    <%= f.submit %>
+    <input name="commit" type="submit" value="New" data-disable-with="New">
   </p>
-<% end %>
+</form>
